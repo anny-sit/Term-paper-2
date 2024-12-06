@@ -20,9 +20,10 @@ public class ExaminerServiceImpl implements ExaminerService {
             throw new WantedMoreThanExistException();
         }
         Set<Question> readyToReturn = new HashSet<>();
-        for (int i = 0; i < amount + 1; i++) {
+        while (amount != readyToReturn.size()) {
             readyToReturn.add(questionService.getRandomQuestion());
         }
+
         return readyToReturn;
     }
 
